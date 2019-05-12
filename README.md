@@ -1,2 +1,2 @@
 # cena_filosofos
-Trabajo para el curso Paralelis, Concurrencia y Sistemas Distribuidos
+Trabajo para el curso Paralelismo, Concurrencia y Sistemas Distribuidos
