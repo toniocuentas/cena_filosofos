@@ -16,18 +16,19 @@ func (f filosofo) servir() {
 		f.tenedor_i.Lock()
 		f.tenedor_d.Lock()
 
-		say("comiendo", f.id)
+		say("comenzando a comer", f.id)
 		time.Sleep(time.Second)
 
+		say("terminando de comer", f.id)
 		f.tenedor_d.Unlock()
 		f.tenedor_i.Unlock()
-		say("terminó de comer", f.id)
+		
 	}
 	waitgroup.Done()
 }
 
 func say(action string, id int) {
-	fmt.Printf("Filosofo #%d %s\n", id+1, action)
+	fmt.Printf("%s #%d\n",action,id+1)
 }
 
 var waitgroup sync.WaitGroup
