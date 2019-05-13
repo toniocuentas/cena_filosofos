@@ -36,15 +36,15 @@ func main() {
 	
 	count := 5
 
-	forks := make([]*tenedor, count)
+	tenedores := make([]*tenedor, count)
 	for i := 0; i < count; i++ {
-		forks[i] = new(tenedor)
+		tenedores[i] = new(tenedor)
 	}
 	// 
 	filosofos := make([]*filosofo, count)
 	for i := 0; i < count; i++ {
 		filosofos[i] = &filosofo{
-			id: i, tenedor_i: forks[i], tenedor_d: forks[(i+1)%count]}
+			id: i, tenedor_i: tenedores[i], tenedor_d: tenedores[(i+1)%count]}
 		waitgroup.Add(1)
 		go filosofos[i].servir()
 	}
