@@ -3,7 +3,6 @@ import (
 	"fmt"
 	"sync"
 	"time"
-	"math/rand"
 )
 type tenedor struct{ sync.Mutex }
 type filosofo struct {
@@ -28,7 +27,7 @@ func (f filosofo) servir() {
 }
 
 func say(action string, id int) {
-	fmt.Printf("Filosofo #%d es %s\n", id+1, action)
+	fmt.Printf("Filosofo #%d %s\n", id+1, action)
 }
 
 var waitgroup sync.WaitGroup
