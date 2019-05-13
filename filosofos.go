@@ -11,17 +11,17 @@ type filosofo struct {
 }
 func (f filosofo) servir() {
 	for j := 0; j < 3; j++ {
+		time.Sleep(time.Second)
+
 		f.tenedor_i.Lock()
 		f.tenedor_d.Lock()
 
 		say("comiendo", f.id)
-		time.Sleep(60)
+		time.Sleep(time.Second)
 
 		f.tenedor_d.Unlock()
 		f.tenedor_i.Unlock()
-
 		say("terminó de comer", f.id)
-		time.Sleep(60)
 	}
 	waitgroup.Done()
 }
@@ -40,8 +40,7 @@ func main() {
 	for i := 0; i < count; i++ {
 		forks[i] = new(tenedor)
 	}
-
-	//
+	// 
 	filosofos := make([]*filosofo, count)
 	for i := 0; i < count; i++ {
 		filosofos[i] = &filosofo{
